@@ -70,7 +70,7 @@ def rebuild_published_index():
   <main class="page-content">
     <div class="container">
       <h1>Published Issues</h1>
-      <p class="text-secondary">Deep Sky Notes as published in <em>Universe</em>, the journal of the Astronomical Society of NSW.</p>
+      <p class="text-secondary"><strong>Wiruna Wanderings</strong> is a monthly column written by Alessandro Spina for <em>Universe</em>, the journal of the <a href="https://www.asnsw.com" target="_blank" rel="noopener">Astronomical Society of New South Wales</a>. Each article covers a new-moon observing weekend at the Society's dark-sky site.</p>
       <div class="download-list">{''.join(items)}
       </div>
     </div>
