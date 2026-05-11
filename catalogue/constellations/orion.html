@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orion &mdash; Deep Sky Notes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-brand">Deep Sky Notes</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="../../articles/index.html">Articles</a></li>
+        <li class="nav-dropdown">
+          <a href="../index.html" class="active">Observing Notes &#9662;</a>
+          <div class="nav-dropdown-menu">
+            <a href="../index.html">Master Table</a>
+            <a href="../constellations/index.html">Browse by Constellation</a>
+          </div>
+        </li>
+        <li><a href="../../published/index.html">Published</a></li>
+        <li><a href="../../about.html">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page-content">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="../index.html">Catalogue</a><span class="sep">&rsaquo;</span>
+        <a href="index.html">Constellations</a><span class="sep">&rsaquo;</span>
+        Orion
+      </div>
+
+      <h1 class="mt-0">Orion</h1>
+      <p class="text-secondary">3 objects in the catalogue</p>
+
+      <div class="object-list">
+        <div class="object-list-item">
+          <img src="../images/orion/b_33_dss.jpg" alt="B 33 — Horsehead Nebula" loading="lazy">
+          <div>
+            <h4><a href="../objects/b-33.html">B 33 — Horsehead Nebula (DN)</a></h4>
+            <div class="item-meta"><span class="type-badge dn">Dark Nebula</span> Mag 4.0 | Size 4.0′</div>
+          </div>
+        </div>
+        <div class="object-list-item">
+          <img src="../images/orion/m_42_dss.jpg" alt="M 42" loading="lazy">
+          <div>
+            <h4><a href="../objects/m-42.html">M 42 (EN)</a></h4>
+            <div class="item-meta"><span class="type-badge en">Emission Nebula</span> Mag 4.0 | Size 1.5°</div>
+          </div>
+        </div>
+        <div class="object-list-item">
+          <img src="../images/orion/ngc_2023_dss.jpg" alt="NGC 2023" loading="lazy">
+          <div>
+            <h4><a href="../objects/ngc-2023.html">NGC 2023 (RN)</a></h4>
+            <div class="item-meta"><span class="type-badge en">Reflection Nebula</span> Mag 7.8 | Size 10.0′</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Deep Sky Notes &mdash; Alessandro Spina</p>
+      <p><a href="https://www.asnsw.com" target="_blank" rel="noopener">Astronomical Society of NSW</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object Catalogue &mdash; Deep Sky Notes</title>
+  <meta name="description" content="Searchable catalogue of 159 deep-sky objects observed from Wiruna dark-sky site">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">Deep Sky Notes</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="../articles/index.html">Articles</a></li>
+        <li class="nav-dropdown">
+          <a href="index.html" class="active">Observing Notes &#9662;</a>
+          <div class="nav-dropdown-menu">
+            <a href="index.html">Master Table</a>
+            <a href="constellations/index.html">Browse by Constellation</a>
+          </div>
+        </li>
+        <li><a href="../published/index.html">Published</a></li>
+        <li><a href="../about.html">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page-content">
+    <div class="container">
+      <h1>Object Catalogue</h1>
+      <p class="text-secondary">A searchable catalogue of deep-sky objects observed from Wiruna dark-sky site. Click any column header to sort. Use the filters to narrow the list.</p>
+
+      <div class="catalogue-controls">
+        <input type="text" class="catalogue-search" id="search" placeholder="Search by name or constellation…">
+        <select class="catalogue-filter" id="filter-type">
+          <option value="">All types</option>
+        </select>
+        <select class="catalogue-filter" id="filter-constellation">
+          <option value="">All constellations</option>
+        </select>
+        <button class="catalogue-clear" id="clear-filters">Clear filters</button>
+        <div class="catalogue-count" id="count"></div>
+      </div>
+
+      <div class="catalogue-table-wrap">
+        <table class="catalogue-table" id="catalogue-table">
+          <thead>
+            <tr>
+              <th data-sort="name">Name</th>
+              <th data-sort="type">Type</th>
+              <th data-sort="constellation">Constellation</th>
+              <th data-sort="raDeg">RA</th>
+              <th data-sort="decDeg">Dec</th>
+              <th data-sort="mag">Mag</th>
+              <th class="no-sort">Size</th>
+              <th data-sort="sb">SB</th>
+            </tr>
+          </thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Deep Sky Notes &mdash; Alessandro Spina</p>
+      <p><a href="https://www.asnsw.com" target="_blank" rel="noopener">Astronomical Society of NSW</a></p>
+    </div>
+  </footer>
+
+  <script src="../js/catalogue-table.js"></script>
+</body>
+</html>
