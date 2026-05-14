@@ -78,7 +78,7 @@ def rebuild_published_index():
   <footer class="site-footer">
     <div class="container">
       <p>Deep Sky Notes &mdash; Alessandro Spina</p>
-      <p><a href="https://www.asnsw.com" target="_blank" rel="noopener">Astronomical Society of NSW</a></p>
+
     </div>
   </footer>
 </body>
