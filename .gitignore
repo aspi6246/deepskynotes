@@ -3,3 +3,4 @@ self.png
 *.M4V
 __pycache__/
 *.pyc
+published/*-full.pdf
