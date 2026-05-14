@@ -208,15 +208,20 @@ ul, ol { padding-left: 1.5em; }
   line-height: 1.6;
 }
 .home-video {
-  padding: 40px 0;
+  padding: 40px 24px;
+}
+.home-video .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
 }
 .video-wrapper {
   position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   max-width: 900px;
-  margin: 0 auto;
+  overflow: hidden;
   border-radius: 8px;
   border: 1px solid var(--border);
 }
@@ -873,7 +878,7 @@ ul, ol { padding-left: 1.5em; }
 
   .hero h1 { font-size: 1.8rem; }
   .hero { padding: 72px 16px 48px; min-height: 260px; }
-  .home-video { padding: 24px 0; }
+  .home-video { padding: 24px 16px; }
 
   .nav-links { display: none; }
   .nav-links.open {
