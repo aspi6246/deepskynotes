@@ -418,6 +418,7 @@ def generate_object_page(obj: dict, prev_obj: dict | None, next_obj: dict | None
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noai, noimageai">
   <title>{obj["name"]} &mdash; Deep Sky Notes</title>
   <meta name="description" content="{obj["displayName"]} in {obj["constellation"]} — finder charts, DSS plate, and observing notes">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -500,6 +501,7 @@ def generate_constellation_page(constellation: str, slug: str, objects: list[dic
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noai, noimageai">
   <title>{constellation} &mdash; Deep Sky Notes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -549,6 +551,7 @@ def generate_constellation_index(constellations: dict[str, list[dict]]) -> str:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noai, noimageai">
   <title>Browse by Constellation &mdash; Deep Sky Notes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -586,6 +589,7 @@ def generate_master_table_page(total: int) -> str:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noai, noimageai">
   <title>Object Catalogue &mdash; Deep Sky Notes</title>
   <meta name="description" content="Searchable catalogue of {total} deep-sky objects observed from Wiruna dark-sky site">
   <link rel="preconnect" href="https://fonts.googleapis.com">
