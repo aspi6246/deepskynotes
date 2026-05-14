@@ -207,6 +207,7 @@ def convert_article(folder: Path, output_dir: Path, year: int, month: int,
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noai, noimageai">
   <title>{title}</title>
   <meta name="description" content="Deep Sky Notes observing report for {month_name} {year}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -265,6 +266,8 @@ def convert_article(folder: Path, output_dir: Path, year: int, month: int,
     <div class="container">
       <p>Deep Sky Notes &mdash; Alessandro Spina</p>
       <p><a href="https://www.asnsw.com" target="_blank" rel="noopener">Astronomical Society of NSW</a></p>
+      <p class="text-secondary">Finder charts produced with <a href="https://stellarium.org" target="_blank" rel="noopener">Stellarium</a>. Survey images from the <a href="https://archive.stsci.edu/cgi-bin/dss_form" target="_blank" rel="noopener">Digitized Sky Survey</a> (STScI/NASA). Object data queried from the <a href="https://simbad.u-strasbg.fr/" target="_blank" rel="noopener">SIMBAD</a> database (CDS, Strasbourg).</p>
+      <p class="text-secondary">&copy; 2026 Alessandro Spina. All rights reserved.</p>
     </div>
   </footer>
 
@@ -314,6 +317,7 @@ def generate_article_index(articles: list[dict], output_dir: Path):
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noai, noimageai">
   <title>Articles &mdash; Deep Sky Notes</title>
   <meta name="description" content="Monthly observing reports from Wiruna dark-sky site">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -356,6 +360,8 @@ def generate_article_index(articles: list[dict], output_dir: Path):
     <div class="container">
       <p>Deep Sky Notes &mdash; Alessandro Spina</p>
       <p><a href="https://www.asnsw.com" target="_blank" rel="noopener">Astronomical Society of NSW</a></p>
+      <p class="text-secondary">Finder charts produced with <a href="https://stellarium.org" target="_blank" rel="noopener">Stellarium</a>. Survey images from the <a href="https://archive.stsci.edu/cgi-bin/dss_form" target="_blank" rel="noopener">Digitized Sky Survey</a> (STScI/NASA). Object data queried from the <a href="https://simbad.u-strasbg.fr/" target="_blank" rel="noopener">SIMBAD</a> database (CDS, Strasbourg).</p>
+      <p class="text-secondary">&copy; 2026 Alessandro Spina. All rights reserved.</p>
     </div>
   </footer>
 
