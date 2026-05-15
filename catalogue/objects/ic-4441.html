@@ -64,21 +64,35 @@
       
       <div class="aladin-viewer">
         <h2 class="object-section-title">Interactive Sky View</h2>
-        <div id="aladin-lite-div" style="width: 100%; height: 350px;"></div>
+        <div id="aladin-lite-div" style="width: 100%; height: 350px;">
+          <div class="aladin-fallback" style="display:flex;align-items:center;justify-content:center;height:100%;color:#888;font-size:0.9rem;text-align:center;padding:1rem;">
+            Loading interactive sky view&hellip;
+          </div>
+        </div>
         <div class="aladin-caption">
           Powered by <a href="https://aladin.cds.unistra.fr/AladinLite/" target="_blank" rel="noopener">Aladin Lite</a> / CDS, Strasbourg.
           Pan, zoom, or switch surveys using the layer icon.
         </div>
         <script type="text/javascript">
-          A.init.then(() => {
-            A.aladin('#aladin-lite-div', {
-              target: '217.582500 -43.562667',
-              survey: 'P/DSS2/color',
-              fov: 1.0000,
-              showReticle: true,
-              showCooGrid: false
+          (function() {
+            if (typeof A === 'undefined' || !A.init) {
+              var fb = document.querySelector('.aladin-fallback');
+              if (fb) fb.textContent = 'Interactive viewer not available on this device. Try viewing on a desktop browser.';
+              return;
+            }
+            A.init.then(function() {
+              A.aladin('#aladin-lite-div', {
+                target: '217.582500 -43.562667',
+                survey: 'P/DSS2/color',
+                fov: 1.0000,
+                showReticle: true,
+                showCooGrid: false
+              });
+            }).catch(function() {
+              var fb = document.querySelector('.aladin-fallback');
+              if (fb) fb.textContent = 'Interactive viewer could not load. Try viewing on a desktop browser.';
             });
-          });
+          })();
         </script>
       </div>
       
