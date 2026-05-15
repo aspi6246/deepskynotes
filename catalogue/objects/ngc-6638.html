@@ -10,6 +10,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="https://aladin.cds.unistra.fr/AladinLite/api/v3/latest/aladin.min.css"/>
+  <script type="text/javascript" src="https://aladin.cds.unistra.fr/AladinLite/api/v3/latest/aladin.min.js" charset="utf-8"></script>
 </head>
 <body>
 
@@ -58,6 +60,26 @@
       <div class="dss-plate">
         <img src="../images/sagittarius/ngc_6638_dss.jpg" alt="NGC 6638 DSS plate" loading="lazy">
         <div class="dss-caption">Source: POSS-2 UK Schmidt Red (STScI) | Field: 10′ × 10′</div>
+      </div>
+      
+      <div class="aladin-viewer">
+        <h2 class="object-section-title">Interactive Sky View</h2>
+        <div id="aladin-lite-div" style="width: 100%; height: 350px;"></div>
+        <div class="aladin-caption">
+          Powered by <a href="https://aladin.cds.unistra.fr/AladinLite/" target="_blank" rel="noopener">Aladin Lite</a> / CDS, Strasbourg.
+          Pan, zoom, or switch surveys using the layer icon.
+        </div>
+        <script type="text/javascript">
+          A.init.then(() => {
+            A.aladin('#aladin-lite-div', {
+              target: '277.737083 -25.496083',
+              survey: 'P/DSS2/color',
+              fov: 0.0800,
+              showReticle: true,
+              showCooGrid: false
+            });
+          });
+        </script>
       </div>
       
       <h2 class="object-section-title">Background</h2>

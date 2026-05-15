@@ -121,6 +121,19 @@ def dec_to_deg(dec_str: str) -> float | None:
     return None
 
 
+def compute_aladin_fov(size_str: str) -> float:
+    if not size_str or size_str in ('–', '--', '0″'):
+        return 0.25
+    nums = re.findall(r'[\d.]+', size_str)
+    if not nums:
+        return 0.25
+    max_dim = max(float(n) for n in nums)
+    if '″' in size_str or '"' in size_str:
+        max_dim /= 60.0
+    fov = max_dim * 4.0 / 60.0
+    return max(0.08, min(fov, 1.0))
+
+
 def parse_mag(val: str) -> float | None:
     try:
         return float(val)
@@ -351,6 +364,30 @@ def generate_object_page(obj: dict, prev_obj: dict | None, next_obj: dict | None
         <div class="dss-caption">Source: {obj['dssSource']} | Field: {obj['dssFov']}</div>
       </div>'''
 
+    aladin_section = ''
+    if obj['raDeg'] is not None and obj['decDeg'] is not None:
+        fov = compute_aladin_fov(obj['size'])
+        aladin_section = f'''
+      <div class="aladin-viewer">
+        <h2 class="object-section-title">Interactive Sky View</h2>
+        <div id="aladin-lite-div" style="width: 100%; height: 350px;"></div>
+        <div class="aladin-caption">
+          Powered by <a href="https://aladin.cds.unistra.fr/AladinLite/" target="_blank" rel="noopener">Aladin Lite</a> / CDS, Strasbourg.
+          Pan, zoom, or switch surveys using the layer icon.
+        </div>
+        <script type="text/javascript">
+          A.init.then(() => {{
+            A.aladin('#aladin-lite-div', {{
+              target: '{obj["raDeg"]:.6f} {obj["decDeg"]:.6f}',
+              survey: 'P/DSS2/color',
+              fov: {fov:.4f},
+              showReticle: true,
+              showCooGrid: false
+            }});
+          }});
+        </script>
+      </div>'''
+
     charts_section = ''
     parts = []
     if ultrawide_web:
@@ -427,6 +464,8 @@ def generate_object_page(obj: dict, prev_obj: dict | None, next_obj: dict | None
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="https://aladin.cds.unistra.fr/AladinLite/api/v3/latest/aladin.min.css"/>
+  <script type="text/javascript" src="https://aladin.cds.unistra.fr/AladinLite/api/v3/latest/aladin.min.js" charset="utf-8"></script>
 </head>
 <body>
 
@@ -455,6 +494,7 @@ def generate_object_page(obj: dict, prev_obj: dict | None, next_obj: dict | None
         </table>
       </div>
       {dss_section}
+      {aladin_section}
       {bg_section}
       {notes_section}
       {refs_section}
