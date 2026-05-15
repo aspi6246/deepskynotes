@@ -379,6 +379,7 @@ def generate_object_page(obj: dict, prev_obj: dict | None, next_obj: dict | None
           Powered by <a href="https://aladin.cds.unistra.fr/AladinLite/" target="_blank" rel="noopener">Aladin Lite</a> / CDS, Strasbourg.
           Pan, zoom, or switch surveys using the layer icon.
         </div>
+        <script type="text/javascript" src="https://aladin.cds.unistra.fr/AladinLite/api/v3/latest/aladin.js" charset="utf-8"></script>
         <script type="text/javascript">
           (function() {{
             if (typeof A === 'undefined' || !A.init) {{
@@ -478,8 +479,6 @@ def generate_object_page(obj: dict, prev_obj: dict | None, next_obj: dict | None
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../css/style.css">
-  <link rel="stylesheet" href="https://aladin.cds.unistra.fr/AladinLite/api/v3/latest/aladin.min.css"/>
-  <script type="text/javascript" src="https://aladin.cds.unistra.fr/AladinLite/api/v3/latest/aladin.min.js" charset="utf-8"></script>
 </head>
 <body>
 
