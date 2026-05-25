@@ -526,8 +526,8 @@
   },
   {
     "id": "ic-2714",
-    "name": "IC 2714",
-    "displayName": "IC 2714 (OC)",
+    "name": "IC 2714 / Mel 104",
+    "displayName": "IC 2714 / Mel 104 (OC)",
     "constellation": "Carina",
     "constellationSlug": "carina",
     "ra": "11h 17m 28.8s",
@@ -607,6 +607,27 @@
     "typeCss": "oc",
     "dssThumb": "images/carina/mel_105_dss.jpg",
     "url": "objects/mel-105.html"
+  },
+  {
+    "id": "mel-96",
+    "name": "Mel 96",
+    "displayName": "Mel 96 (PN)",
+    "constellation": "Carina",
+    "constellationSlug": "carina",
+    "ra": "09h 16m 01.8s",
+    "dec": "-36° 37′ 55.2″",
+    "raDeg": 139.0075,
+    "decDeg": -36.632,
+    "size": "40′′",
+    "mag": 11.6,
+    "magStr": "11.6",
+    "sb": 10.5,
+    "sbStr": "10.5",
+    "type": "PN",
+    "typeLabel": "Planetary Nebula",
+    "typeCss": "pn",
+    "dssThumb": "images/carina/mel_96_dss.jpg",
+    "url": "objects/mel-96.html"
   },
   {
     "id": "ngc-2808",
