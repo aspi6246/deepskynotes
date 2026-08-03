@@ -857,6 +857,45 @@ ul, ol { padding-left: 1.5em; }
   color: var(--text-secondary);
 }
 
+/* --- Links & References page ------------------------------- */
+.links-intro {
+  max-width: var(--article-max);
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+.links-category {
+  margin-top: 40px;
+}
+.links-category h2 {
+  color: var(--accent);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 6px;
+  margin-bottom: 20px;
+}
+.links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: var(--article-max);
+}
+.links-list li {
+  padding: 6px 0;
+  line-height: 1.6;
+}
+.links-list li::before {
+  content: '\2022';
+  color: var(--accent-dim);
+  margin-right: 10px;
+}
+.links-list .link-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.links-list a {
+  word-break: break-word;
+}
+
 /* --- Footer ------------------------------------------------ */
 .site-footer {
   border-top: 1px solid var(--border);

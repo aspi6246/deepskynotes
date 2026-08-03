@@ -231,6 +231,7 @@ def convert_article(folder: Path, output_dir: Path, year: int, month: int,
           </div>
         </li>
         <li><a href="../published/index.html">Published</a></li>
+        <li><a href="../links.html">Links</a></li>
         <li><a href="../about.html">About</a></li>
       </ul>
     </div>
@@ -341,6 +342,7 @@ def generate_article_index(articles: list[dict], output_dir: Path):
           </div>
         </li>
         <li><a href="../published/index.html">Published</a></li>
+        <li><a href="../links.html">Links</a></li>
         <li><a href="../about.html">About</a></li>
       </ul>
     </div>
