@@ -29,13 +29,14 @@ TYPE_LABELS = {
     'RN': 'Reflection Nebula', 'OC+N': 'Open Cluster + Nebula',
     'Interstellar': 'Interstellar', 'Cl': 'Open Cluster',
     'AGN': 'Galaxy', 'Active': 'Galaxy', 'Radio': 'Galaxy',
+    'SNR': 'Supernova Remnant',
 }
 
 TYPE_CSS = {
     'Globular Cluster': 'gc', 'Open Cluster': 'oc', 'Planetary Nebula': 'pn',
     'Emission Nebula': 'en', 'Galaxy': 'gal', 'Dark Nebula': 'dn',
     'Reflection Nebula': 'en', 'Open Cluster + Nebula': 'oc',
-    'Interstellar': 'en',
+    'Interstellar': 'en', 'Supernova Remnant': 'en',
 }
 
 
@@ -69,14 +70,16 @@ def clean_latex(text: str) -> str:
 
 def clean_spec_field(val: str) -> str:
     val = val.strip()
-    val = re.sub(r'^\$|\$$', '', val)
-    val = val.replace('\\,', ' ')
-    val = val.replace("'", '′')
+    # Drop ALL math delimiters, not just the outer pair: spec strips use inline
+    # maths for primes (e.g. -63°\,51$'$\,13.7$''$).
+    val = val.replace('$', '')
+    val = val.replace(r'\,', ' ')
+    # Double prime first, else "''" is consumed as two single primes.
     val = val.replace("''", '″')
+    val = val.replace("'", '′')
     val = val.replace('"', '″')
-    val = val.replace('\\textdegree', '°')
-    val = val.replace('°', '°')
-    val = val.replace('\\times', '×')
+    val = val.replace(r'\textdegree', '°')
+    val = val.replace(r'\times', '×')
     return val.strip()
 
 
