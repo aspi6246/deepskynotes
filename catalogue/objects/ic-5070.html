@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noai, noimageai">
+  <title>IC 5070 &mdash; Deep Sky Notes</title>
+  <meta name="description" content="IC 5070 (EN) in Cygnus — finder charts, DSS plate, and observing notes">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-brand">Deep Sky Notes</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="../../articles/index.html">Articles</a></li>
+        <li class="nav-dropdown">
+          <a href="../index.html" class="active">Observing Notes &#9662;</a>
+          <div class="nav-dropdown-menu">
+            <a href="../index.html">Master Table</a>
+            <a href="../constellations/index.html">Browse by Constellation</a>
+          </div>
+        </li>
+        <li><a href="../../published/index.html">Published</a></li>
+        <li><a href="../../links.html">Links</a></li>
+        <li><a href="../../about.html">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page-content">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="../index.html">Catalogue</a><span class="sep">&rsaquo;</span>
+        <a href="../constellations/cygnus.html">Cygnus</a><span class="sep">&rsaquo;</span>
+        IC 5070
+      </div>
+
+      <div class="object-header">
+        <h1 class="mt-0">IC 5070 (EN)</h1>
+        <div class="object-constellation"><span class="type-badge en">Emission Nebula</span> in Cygnus</div>
+      </div>
+
+      <div class="specs-table-wrap">
+        <table class="specs-table">
+          <thead><tr>
+            <th>R.A.</th><th>Dec.</th><th>Size</th><th>Mag</th>
+            <th>SB</th><th>Cnt.St</th><th>Type</th><th>Distance</th><th>Chart</th>
+          </tr></thead>
+          <tbody><tr><td>20h 51m 01.8s</td><td>+44° 22′ 14.5″</td><td>1.0°</td><td>--</td><td>--</td><td>--</td><td>EN</td><td>--</td><td>--</td></tr></tbody>
+        </table>
+      </div>
+      
+      <div class="dss-plate">
+        <img src="../images/cygnus/ic_5070_dss.jpg" alt="IC 5070 DSS plate" loading="lazy">
+        <div class="dss-caption">Source: POSS-2 UK Schmidt Red (STScI) | Field: 60′ × 60′</div>
+      </div>
+      
+      <div class="aladin-viewer">
+        <h2 class="object-section-title">Interactive Sky View</h2>
+        <div id="aladin-lite-div" style="width: 100%; height: 350px;">
+          <div class="aladin-fallback" style="display:flex;align-items:center;justify-content:center;height:100%;color:#888;font-size:0.9rem;text-align:center;padding:1rem;">
+            Loading interactive sky view&hellip;
+          </div>
+        </div>
+        <div class="aladin-caption">
+          Powered by <a href="https://aladin.cds.unistra.fr/AladinLite/" target="_blank" rel="noopener">Aladin Lite</a> / CDS, Strasbourg.
+          Pan, zoom, or switch surveys using the layer icon.
+        </div>
+        <script type="text/javascript" src="https://aladin.cds.unistra.fr/AladinLite/api/v3/latest/aladin.js" charset="utf-8"></script>
+        <script type="text/javascript">
+          (function() {
+            if (typeof A === 'undefined' || !A.init) {
+              var fb = document.querySelector('.aladin-fallback');
+              if (fb) fb.textContent = 'Interactive viewer not available on this device. Try viewing on a desktop browser.';
+              return;
+            }
+            A.init.then(function() {
+              A.aladin('#aladin-lite-div', {
+                target: '312.757500 44.370694',
+                survey: 'P/DSS2/color',
+                fov: 0.0800,
+                showReticle: true,
+                showCooGrid: false
+              });
+            }).catch(function() {
+              var fb = document.querySelector('.aladin-fallback');
+              if (fb) fb.textContent = 'Interactive viewer could not load. Try viewing on a desktop browser.';
+            });
+          })();
+        </script>
+      </div>
+      
+      <h2 class="object-section-title">Background</h2>
+      <p>IC 5070 is the Pelican Nebula — beak, neck and back carved out of the same vast HII complex as the North America Nebula, from which it is separated only by the dark lane LDN 935.  2,600 light-years away. At very low power with OIII the brighter ridge along the “neck” shows first; the ionisation front there is actively eating into the dark cloud at this moment.</p>
+      
+      <h2 class="object-section-title">My Observing Notes</h2>
+      <div class="observing-notes">
+        <p>(Not yet observed)</p>
+      </div>
+      
+      <h2 class="object-section-title">References</h2>
+      <ul class="references-list">
+<li><a href="https://simbad.u-strasbg.fr/simbad/sim-id?Ident=IC%205070" target="_blank" rel="noopener">SIMBAD: IC 5070</a></li>
+<li><a href="https://en.wikipedia.org/wiki/IC_5070" target="_blank" rel="noopener">Wikipedia: IC 5070</a></li>
+</ul>
+      
+      <h2 class="object-section-title">Charts</h2>
+      <div class="charts-grid">
+        <div class="chart-ultrawide">
+          <img src="../images/cygnus/ic_5070_ultrawide.jpg" alt="IC 5070 ultra-wide chart" loading="lazy">
+          <div class="chart-caption">Ultra-wide view (~25° field)</div>
+        </div>
+        <div class="chart-wide">
+          <img src="../images/cygnus/ic_5070_wide.jpg" alt="IC 5070 wide-field chart" loading="lazy">
+          <div class="chart-caption">Wide-field view with Telrad rings (4°, 2°, 0.5°)</div>
+        </div>
+        <div class="charts-pair">
+          <div class="chart">
+            <img src="../images/cygnus/ic_5070_finder.jpg" alt="IC 5070 finderscope view" loading="lazy">
+            <div class="chart-caption">Finderscope view (9×50 RACI, ~4.4° TFOV)</div>
+          </div>
+          <div class="chart">
+            <img src="../images/cygnus/ic_5070_ep.jpg" alt="IC 5070 eyepiece view" loading="lazy">
+            <div class="chart-caption">Eyepiece view — 35 mm Panoptic on 12-inch f/5 (1.6° TFOV)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="object-nav">
+        <a href="ic-5068.html">&larr; IC 5068</a>
+        <a href="../constellations/cygnus.html" class="back-link">Cygnus</a>
+        <a href="ic-5076.html">IC 5076 &rarr;</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Deep Sky Notes &mdash; Alessandro Spina</p>
+
+      <p class="text-secondary">Finder charts produced with <a href="https://stellarium.org" target="_blank" rel="noopener">Stellarium</a>. Survey images from the <a href="https://archive.stsci.edu/cgi-bin/dss_form" target="_blank" rel="noopener">Digitized Sky Survey</a> (STScI/NASA). Object data queried from the <a href="https://simbad.u-strasbg.fr/" target="_blank" rel="noopener">SIMBAD</a> database (CDS, Strasbourg).</p>
+      <p class="text-secondary">&copy; 2026 Alessandro Spina. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

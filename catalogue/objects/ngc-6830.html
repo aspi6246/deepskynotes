@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noai, noimageai">
+  <title>NGC 6830 &mdash; Deep Sky Notes</title>
+  <meta name="description" content="NGC 6830 (OC) in Vulpecula — finder charts, DSS plate, and observing notes">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-brand">Deep Sky Notes</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="../../articles/index.html">Articles</a></li>
+        <li class="nav-dropdown">
+          <a href="../index.html" class="active">Observing Notes &#9662;</a>
+          <div class="nav-dropdown-menu">
+            <a href="../index.html">Master Table</a>
+            <a href="../constellations/index.html">Browse by Constellation</a>
+          </div>
+        </li>
+        <li><a href="../../published/index.html">Published</a></li>
+        <li><a href="../../links.html">Links</a></li>
+        <li><a href="../../about.html">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page-content">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="../index.html">Catalogue</a><span class="sep">&rsaquo;</span>
+        <a href="../constellations/vulpecula.html">Vulpecula</a><span class="sep">&rsaquo;</span>
+        NGC 6830
+      </div>
+
+      <div class="object-header">
+        <h1 class="mt-0">NGC 6830 (OC)</h1>
+        <div class="object-constellation"><span class="type-badge oc">Open Cluster</span> in Vulpecula</div>
+      </div>
+
+      <div class="specs-table-wrap">
+        <table class="specs-table">
+          <thead><tr>
+            <th>R.A.</th><th>Dec.</th><th>Size</th><th>Mag</th>
+            <th>SB</th><th>Cnt.St</th><th>Type</th><th>Distance</th><th>Chart</th>
+          </tr></thead>
+          <tbody><tr><td>19h 51m 00.4s</td><td>+23° 06′ 06.1″</td><td>8.0′</td><td>7.9</td><td>12.2</td><td>II2p</td><td>OC</td><td>--</td><td>--</td></tr></tbody>
+        </table>
+      </div>
+      
+      <div class="dss-plate">
+        <img src="../images/vulpecula/ngc_6830_dss.jpg" alt="NGC 6830 DSS plate" loading="lazy">
+        <div class="dss-caption">Source: POSS-2 UK Schmidt Red (STScI) | Field: 15′ × 15′</div>
+      </div>
+      
+      <div class="aladin-viewer">
+        <h2 class="object-section-title">Interactive Sky View</h2>
+        <div id="aladin-lite-div" style="width: 100%; height: 350px;">
+          <div class="aladin-fallback" style="display:flex;align-items:center;justify-content:center;height:100%;color:#888;font-size:0.9rem;text-align:center;padding:1rem;">
+            Loading interactive sky view&hellip;
+          </div>
+        </div>
+        <div class="aladin-caption">
+          Powered by <a href="https://aladin.cds.unistra.fr/AladinLite/" target="_blank" rel="noopener">Aladin Lite</a> / CDS, Strasbourg.
+          Pan, zoom, or switch surveys using the layer icon.
+        </div>
+        <script type="text/javascript" src="https://aladin.cds.unistra.fr/AladinLite/api/v3/latest/aladin.js" charset="utf-8"></script>
+        <script type="text/javascript">
+          (function() {
+            if (typeof A === 'undefined' || !A.init) {
+              var fb = document.querySelector('.aladin-fallback');
+              if (fb) fb.textContent = 'Interactive viewer not available on this device. Try viewing on a desktop browser.';
+              return;
+            }
+            A.init.then(function() {
+              A.aladin('#aladin-lite-div', {
+                target: '297.751667 23.101694',
+                survey: 'P/DSS2/color',
+                fov: 0.5333,
+                showReticle: true,
+                showCooGrid: false
+              });
+            }).catch(function() {
+              var fb = document.querySelector('.aladin-fallback');
+              if (fb) fb.textContent = 'Interactive viewer could not load. Try viewing on a desktop browser.';
+            });
+          })();
+        </script>
+      </div>
+      
+      <h2 class="object-section-title">Background</h2>
+      <p>NGC 6830 is a 7.9-magnitude cluster of  30 stars arranged in a distinctive cross or X shape, sitting 2° west of M 27 — most observers sweep straight past it on the way to the Dumbbell. Worth the pause: at medium power the cross pattern is surprisingly crisp.</p>
+      
+      <h2 class="object-section-title">My Observing Notes</h2>
+      <div class="observing-notes">
+        <p>(Not yet observed)</p>
+      </div>
+      
+      <h2 class="object-section-title">References</h2>
+      <ul class="references-list">
+<li><a href="https://simbad.u-strasbg.fr/simbad/sim-id?Ident=NGC%206830" target="_blank" rel="noopener">SIMBAD: NGC 6830</a></li>
+<li><a href="https://en.wikipedia.org/wiki/NGC_6830" target="_blank" rel="noopener">Wikipedia: NGC 6830</a></li>
+</ul>
+      
+      <h2 class="object-section-title">Charts</h2>
+      <div class="charts-grid">
+        <div class="chart-ultrawide">
+          <img src="../images/vulpecula/ngc_6830_ultrawide.jpg" alt="NGC 6830 ultra-wide chart" loading="lazy">
+          <div class="chart-caption">Ultra-wide view (~25° field)</div>
+        </div>
+        <div class="chart-wide">
+          <img src="../images/vulpecula/ngc_6830_wide.jpg" alt="NGC 6830 wide-field chart" loading="lazy">
+          <div class="chart-caption">Wide-field view with Telrad rings (4°, 2°, 0.5°)</div>
+        </div>
+        <div class="charts-pair">
+          <div class="chart">
+            <img src="../images/vulpecula/ngc_6830_finder.jpg" alt="NGC 6830 finderscope view" loading="lazy">
+            <div class="chart-caption">Finderscope view (9×50 RACI, ~4.4° TFOV)</div>
+          </div>
+          <div class="chart">
+            <img src="../images/vulpecula/ngc_6830_ep.jpg" alt="NGC 6830 eyepiece view" loading="lazy">
+            <div class="chart-caption">Eyepiece view — 35 mm Panoptic on 12-inch f/5 (1.6° TFOV)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="object-nav">
+        <a href="ngc-6827.html">&larr; NGC 6827</a>
+        <a href="../constellations/vulpecula.html" class="back-link">Vulpecula</a>
+        <a href="ngc-6842.html">NGC 6842 &rarr;</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Deep Sky Notes &mdash; Alessandro Spina</p>
+
+      <p class="text-secondary">Finder charts produced with <a href="https://stellarium.org" target="_blank" rel="noopener">Stellarium</a>. Survey images from the <a href="https://archive.stsci.edu/cgi-bin/dss_form" target="_blank" rel="noopener">Digitized Sky Survey</a> (STScI/NASA). Object data queried from the <a href="https://simbad.u-strasbg.fr/" target="_blank" rel="noopener">SIMBAD</a> database (CDS, Strasbourg).</p>
+      <p class="text-secondary">&copy; 2026 Alessandro Spina. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

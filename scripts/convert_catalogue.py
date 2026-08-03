@@ -48,6 +48,7 @@ def clean_latex(text: str) -> str:
         text = text.replace(f'${cmd}$', char)
         text = text.replace(cmd, char)
     text = re.sub(r'\$\\sim\$', '~', text)
+    text = re.sub(r'\$\\approx\$', '≈', text)
     text = re.sub(r'\$([^$]*)\$', lambda m: m.group(1), text)
     text = text.replace('\\,', ' ')
     text = text.replace('{,}', ',')
@@ -324,6 +325,7 @@ NAV_HTML = '''<nav class="site-nav">
           </div>
         </li>
         <li><a href="../../published/index.html">Published</a></li>
+        <li><a href="../../links.html">Links</a></li>
         <li><a href="../../about.html">About</a></li>
       </ul>
     </div>
@@ -668,6 +670,7 @@ def generate_master_table_page(total: int) -> str:
           </div>
         </li>
         <li><a href="../published/index.html">Published</a></li>
+        <li><a href="../links.html">Links</a></li>
         <li><a href="../about.html">About</a></li>
       </ul>
     </div>
@@ -717,6 +720,22 @@ def generate_master_table_page(total: int) -> str:
 </html>'''
 
 
+def chapter_referenced() -> set[tuple[str, str]]:
+    """(Constellation, slug) pairs actually \\input by the chapter files —
+    the catalogue's source of truth. Keeps stale objects_bw leftovers
+    (e.g. an orphaned mel_104 from an older build) off the website."""
+    refs = set()
+    const_dir = CATALOGUE_DIR / 'constellations'
+    for ch in sorted(const_dir.glob('*.tex')):
+        for line in ch.read_text(encoding='utf-8').splitlines():
+            if line.lstrip().startswith('%'):
+                continue
+            m = re.search(r'objects/([^/]+)/([^}]+)\}', line)
+            if m:
+                refs.add((m.group(1), m.group(2)))
+    return refs
+
+
 def main():
     objects_dir = OBJECTS_SRC
     if len(sys.argv) > 1:
@@ -725,11 +744,15 @@ def main():
     if len(sys.argv) > 2:
         output_dir = Path(sys.argv[2])
 
+    allowed = chapter_referenced()
     all_objects = []
     for const_dir in sorted(objects_dir.iterdir()):
         if not const_dir.is_dir():
             continue
         for tex_file in sorted(const_dir.glob('*.tex')):
+            if allowed and (const_dir.name, tex_file.stem) not in allowed:
+                print(f"SKIP (not in any chapter): {const_dir.name}/{tex_file.stem}")
+                continue
             obj = parse_tex_file(tex_file)
             if obj:
                 all_objects.append(obj)
