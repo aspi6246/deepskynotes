@@ -1,2 +1,5 @@
 python-docx>=0.8.11
-Pillow>=10.0.0
+# Pinned exactly: a Pillow/libjpeg upgrade changes JPEG encoder output, which
+# would rewrite all ~1,800 catalogue images as new blobs and add ~142 MB to git
+# history in a single commit. Only bump deliberately.
+Pillow==12.1.1
