@@ -506,7 +506,7 @@ def generate_object_page(obj: dict, prev_obj: dict | None, next_obj: dict | None
         <table class="specs-table">
           <thead><tr>
             <th>R.A.</th><th>Dec.</th><th>Size</th><th>Mag</th>
-            <th>SB</th><th>Cnt.St</th><th>Type</th><th>Distance</th><th>Chart</th>
+            <th>SB</th><th>Class</th><th>Type</th><th>Distance</th><th>Chart</th>
           </tr></thead>
           <tbody><tr>{specs_row}</tr></tbody>
         </table>
