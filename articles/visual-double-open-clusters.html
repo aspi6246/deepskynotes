@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noai, noimageai">
+  <title>An Unofficial Catalogue of Visual Double Open Clusters &mdash; Deep Sky Notes</title>
+  <meta name="description" content="A running catalogue of open cluster pairs that share a single field of view in a 12-inch Dobsonian with a 35 mm eyepiece.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* Overrides so the pair-per-row table renders sensibly without the sort JS */
+    .double-oc-table th { cursor: default; }
+    .double-oc-table td { vertical-align: top; }
+    .double-oc-table td.pair-cell,
+    .double-oc-table td.pair-cell a { font-weight: 600; }
+    .double-oc-table td.pair-cell a { color: var(--text-primary); }
+    .double-oc-table td.pair-cell a:hover { color: var(--accent); }
+    .double-oc-table td.notes-cell { white-space: normal; min-width: 26ch; max-width: 46ch; }
+    .double-oc-table .note-date { color: var(--text-secondary); font-style: italic; font-size: 0.85em; white-space: nowrap; }
+    .table-footnote { color: var(--text-secondary); font-size: 0.9rem; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">Deep Sky Notes</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Articles</a></li>
+        <li class="nav-dropdown">
+          <a href="../catalogue/index.html">Observing Notes &#9662;</a>
+          <div class="nav-dropdown-menu">
+            <a href="../catalogue/index.html">Master Table</a>
+            <a href="../catalogue/constellations/index.html">Browse by Constellation</a>
+          </div>
+        </li>
+        <li><a href="../published/index.html">Published</a></li>
+        <li><a href="../links.html">Links</a></li>
+        <li><a href="../about.html">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page-content">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="index.html">Articles</a><span class="sep">&rsaquo;</span>
+        Visual Double Open Clusters
+      </div>
+
+      <div class="article-header">
+        <h1 class="mt-0">An Unofficial Catalogue of Visual Double Open Clusters</h1>
+        <div class="article-meta">
+          <time datetime="2026-08">First posted August 2026</time> &middot;
+          Living document
+        </div>
+      </div>
+
+      <div class="article-body">
+        <p>This catalogue is my attempt to keep a running list of the visual double open clusters I come across at the eyepiece. Of course, what counts as a &ldquo;visual double&rdquo; depends entirely on the telescope and eyepiece &mdash; a pair that fills two adjacent low-power fields in one scope may fit comfortably in a single field in another.</p>
+
+        <p>For this list, my working definition of a visual double is <em>any pair of open clusters that shares the same field of view in my 12-inch f/5 SkyWatcher Dob with a 35&nbsp;mm Panoptic eyepiece</em> &mdash; a true field of about 1.6&deg;. The occasional pair caught in another scope that would clearly fit that 12-inch field also makes the cut.</p>
+
+        <p>The list skews southern hemisphere because that&rsquo;s where I observe, and it is a work in progress &mdash; I&rsquo;ll add pairs as I come across them. Cluster names link to their entries in the <a href="../catalogue/index.html">object catalogue</a>, where you&rsquo;ll find the full notes, DSS plates, and finder charts.</p>
+
+        <div class="catalogue-table-wrap">
+          <table class="catalogue-table double-oc-table">
+            <thead>
+              <tr>
+                <th class="no-sort">Pair</th>
+                <th class="no-sort">Constellation</th>
+                <th class="no-sort">RA (J2000)</th>
+                <th class="no-sort">Dec (J2000)</th>
+                <th class="no-sort">Mag</th>
+                <th class="no-sort">Observing notes</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <td class="pair-cell">
+                  <a href="../catalogue/objects/ngc-3572.html">NGC 3572</a><br>
+                  <a href="../catalogue/objects/ngc-3590.html">NGC 3590</a>
+                </td>
+                <td>Carina</td>
+                <td>11h 10.4m<br>11h 13.0m</td>
+                <td>&minus;60&deg;&nbsp;15&prime;<br>&minus;60&deg;&nbsp;47&prime;</td>
+                <td>6.6<br>8.2</td>
+                <td class="notes-cell">In the 35&nbsp;mm Panoptic both clusters share the field with a loose clump of stars between them &mdash; the impression is of three interacting clusters, and it is genuinely hard to tell where one ends and the next begins. Two bright patches of nebulosity (NGC 3579/3603) sit in the same view. <span class="note-date">(Apr 2026)</span></td>
+              </tr>
+
+              <tr>
+                <td class="pair-cell">
+                  <a href="../catalogue/objects/ic-2714.html">IC 2714</a><br>
+                  <a href="../catalogue/objects/mel-105.html">Mel 105</a>
+                </td>
+                <td>Carina</td>
+                <td>11h 17.5m<br>11h 19.7m</td>
+                <td>&minus;62&deg;&nbsp;44&prime;<br>&minus;63&deg;&nbsp;29&prime;</td>
+                <td>8.2<br>8.5</td>
+                <td class="notes-cell">Halfway along the line from IC&nbsp;2602 to &lambda;&nbsp;Centauri. In the 35&nbsp;mm Panoptic both clusters fit in the same field for a lovely contrast: IC&nbsp;2714 a large, relatively dense disk of 60+ stars spread across &sim;15&prime;, Mel&nbsp;105 packed into just &sim;5&prime; with only a few members resolved at low power. Highlighted as a pair by O&rsquo;Meara in <em>Deep-Sky Companions: Southern Gems</em>. <span class="note-date">(Apr 2026)</span></td>
+              </tr>
+
+              <tr>
+                <td class="pair-cell">
+                  <a href="../catalogue/objects/ic-2602.html">IC 2602</a><br>
+                  <a href="../catalogue/objects/mel-101.html">Mel 101</a>
+                </td>
+                <td>Carina</td>
+                <td>10h 43.0m<br>10h 42.2m</td>
+                <td>&minus;64&deg;&nbsp;24&prime;<br>&minus;65&deg;&nbsp;06&prime;</td>
+                <td>1.9<br>8.0</td>
+                <td class="notes-cell">A slightly asymmetric pair. IC&nbsp;2602 (the Southern Pleiades) is too large for any eyepiece &mdash; best appreciated in binoculars or the finderscope &mdash; but nearby Mel&nbsp;101 tucks into the edge of its field as a modest cluster of 30&ndash;40 stars forming a clear &ldquo;figure-8&rdquo; shape. Comfortably squeezed into a single field with a small refractor. Not physically associated: Mel&nbsp;101 lies &sim;14&times; more distant than IC&nbsp;2602. <span class="note-date">(Apr / Jul 2026)</span></td>
+              </tr>
+
+              <tr>
+                <td class="pair-cell">
+                  <a href="../catalogue/objects/ngc-6200.html">NGC 6200</a><br>
+                  <a href="../catalogue/objects/ngc-6204.html">NGC 6204</a>
+                </td>
+                <td>Ara</td>
+                <td>16h 44.1m<br>16h 46.2m</td>
+                <td>&minus;47&deg;&nbsp;28&prime;<br>&minus;47&deg;&nbsp;01&prime;</td>
+                <td>7.4<br>8.2</td>
+                <td class="notes-cell">With NGC&nbsp;6193 centred in the finder, this pair drops together into one 35&nbsp;mm field &mdash; a great contrasting pair. NGC&nbsp;6200 is the tight, densely packed one: 30+ stars, with a chain of four brighter stars tapering off the top. NGC&nbsp;6204 sits on the other side as a small, dense knot with a triplet of bright stars hanging off one edge. Observed in the Club 17.5&Prime;; would fit the 12&Prime; field too. <span class="note-date">(Sep 2025 &amp; Jul 2026)</span></td>
+              </tr>
+
+              <tr>
+                <td class="pair-cell">
+                  <a href="../catalogue/objects/ngc-6134.html">NGC 6134</a><br>
+                  Hogg 19
+                </td>
+                <td>Norma</td>
+                <td>16h 27.8m<br>16h 29.0m</td>
+                <td>&minus;49&deg;&nbsp;09&prime;<br>&minus;49&deg;&nbsp;07&prime;</td>
+                <td>7.2<br>&mdash;</td>
+                <td class="notes-cell">NGC&nbsp;6134 is a dense circular disk of 60+ stars across &sim;10&prime;, easy to pick out from the rich Norma star fields even against a nebulous background. A second, smaller knot of stars off to one side is the sparse open cluster Hogg&nbsp;19, sitting about a quarter of a degree away. Observed in the Club 17.5&Prime;; would fit the 12&Prime; field too. Hogg&nbsp;19 has no catalogued V magnitude. <span class="note-date">(Jul 2026)</span></td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+        <p class="table-footnote">Positions and magnitudes drawn from my <a href="../catalogue/index.html">object catalogue</a>, which itself cross-checks Stellarium against SIMBAD when each object is added. If a favourite pair is missing, it just means I haven&rsquo;t come across it in the eyepiece yet &mdash; it&rsquo;ll be added when I do.</p>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Deep Sky Notes &mdash; Alessandro Spina</p>
+
+      <p class="text-secondary">Finder charts produced with <a href="https://stellarium.org" target="_blank" rel="noopener">Stellarium</a>. Survey images from the <a href="https://archive.stsci.edu/cgi-bin/dss_form" target="_blank" rel="noopener">Digitized Sky Survey</a> (STScI/NASA). Object data queried from the <a href="https://simbad.u-strasbg.fr/" target="_blank" rel="noopener">SIMBAD</a> database (CDS, Strasbourg).</p>
+      <p class="text-secondary">&copy; 2026 Alessandro Spina. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
