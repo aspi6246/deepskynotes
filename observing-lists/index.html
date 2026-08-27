@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noai, noimageai">
-  <title>Object Catalogue &mdash; Deep Sky Notes</title>
-  <meta name="description" content="Searchable catalogue of 324 deep-sky objects observed from Wiruna dark-sky site">
+  <title>Observing Lists &mdash; Deep Sky Notes</title>
+  <meta name="description" content="Curated lists of deep-sky objects worth chasing at the eyepiece — living catalogues rather than one-shot observing reports.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,13 +20,13 @@
       <ul class="nav-links">
         <li><a href="../articles/index.html">Articles</a></li>
         <li class="nav-dropdown">
-          <a href="index.html" class="active">Observing Notes &#9662;</a>
+          <a href="../catalogue/index.html">Observing Notes &#9662;</a>
           <div class="nav-dropdown-menu">
-            <a href="index.html">Master Table</a>
-            <a href="constellations/index.html">Browse by Constellation</a>
+            <a href="../catalogue/index.html">Master Table</a>
+            <a href="../catalogue/constellations/index.html">Browse by Constellation</a>
           </div>
         </li>
-        <li><a href="../observing-lists/index.html">Observing Lists</a></li>
+        <li><a href="index.html" class="active">Observing Lists</a></li>
         <li><a href="../published/index.html">Published</a></li>
         <li><a href="../links.html">Links</a></li>
         <li><a href="../about.html">About</a></li>
@@ -36,37 +36,18 @@
 
   <main class="page-content">
     <div class="container">
-      <h1>Object Catalogue</h1>
-      <p class="text-secondary">A searchable catalogue of deep-sky objects observed from Wiruna dark-sky site. Click any column header to sort. Use the filters to narrow the list.</p>
+      <h1>Observing Lists</h1>
+      <p class="text-secondary">Curated catalogues of deep-sky objects I&rsquo;ve found worth chasing at the eyepiece &mdash; living lists rather than one-shot observing reports. Each list is a work in progress and grows as new objects turn up in the eyepiece.</p>
 
-      <div class="catalogue-controls">
-        <input type="text" class="catalogue-search" id="search" placeholder="Search by name or constellation…">
-        <select class="catalogue-filter" id="filter-type">
-          <option value="">All types</option>
-        </select>
-        <select class="catalogue-filter" id="filter-constellation">
-          <option value="">All constellations</option>
-        </select>
-        <button class="catalogue-clear" id="clear-filters">Clear filters</button>
-        <div class="catalogue-count" id="count"></div>
-      </div>
-
-      <div class="catalogue-table-wrap">
-        <table class="catalogue-table" id="catalogue-table">
-          <thead>
-            <tr>
-              <th data-sort="name">Name</th>
-              <th data-sort="type">Type</th>
-              <th data-sort="constellation">Constellation</th>
-              <th data-sort="raDeg">RA</th>
-              <th data-sort="decDeg">Dec</th>
-              <th data-sort="mag">Mag</th>
-              <th class="no-sort">Size</th>
-              <th data-sort="sb">SB</th>
-            </tr>
-          </thead>
-          <tbody id="table-body"></tbody>
-        </table>
+      <div class="article-list">
+        <div class="article-card">
+          <img class="article-card-thumb" src="../articles/images/2026-04/figure-05.jpg" alt="" loading="lazy">
+          <div class="article-card-body">
+            <h3><a href="visual-double-open-clusters.html">An Unofficial Catalogue of Visual Double Open Clusters</a></h3>
+            <div class="date">August 2026</div>
+            <p class="excerpt">A running list of open cluster pairs that share the same field of view in a 12-inch Dob with a 35 mm eyepiece. Southern-hemisphere focused, and expanded as new pairs turn up at the eyepiece.</p>
+          </div>
+        </div>
       </div>
     </div>
   </main>
@@ -80,6 +61,5 @@
     </div>
   </footer>
 
-  <script src="../js/catalogue-table.js"></script>
 </body>
 </html>

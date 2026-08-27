@@ -230,6 +230,7 @@ def convert_article(folder: Path, output_dir: Path, year: int, month: int,
             <a href="../catalogue/constellations/index.html">Browse by Constellation</a>
           </div>
         </li>
+        <li><a href="../observing-lists/index.html">Observing Lists</a></li>
         <li><a href="../published/index.html">Published</a></li>
         <li><a href="../links.html">Links</a></li>
         <li><a href="../about.html">About</a></li>
