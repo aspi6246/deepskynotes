@@ -18,7 +18,12 @@
     .double-oc-table td.pair-cell a { font-weight: 600; }
     .double-oc-table td.pair-cell a { color: var(--text-primary); }
     .double-oc-table td.pair-cell a:hover { color: var(--accent); }
-    .double-oc-table td.notes-cell { white-space: normal; min-width: 26ch; max-width: 46ch; }
+    /* Widen this page so the notes column has room to breathe, but keep the
+       prose paragraphs at a readable line length. */
+    main .container { max-width: 1400px; }
+    .article-body { max-width: none; }
+    .article-body > p { max-width: 720px; }
+    .double-oc-table td.notes-cell { white-space: normal; min-width: 26ch; max-width: 65ch; }
     .double-oc-table .note-date { color: var(--text-secondary); font-style: italic; font-size: 0.85em; white-space: nowrap; }
     .double-oc-table td.pair-cell { min-width: 210px; }
     .double-oc-table .pair-cell-inner { display: flex; gap: 12px; align-items: flex-start; }
