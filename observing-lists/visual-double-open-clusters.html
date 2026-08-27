@@ -20,7 +20,18 @@
     .double-oc-table td.pair-cell a:hover { color: var(--accent); }
     .double-oc-table td.notes-cell { white-space: normal; min-width: 26ch; max-width: 46ch; }
     .double-oc-table .note-date { color: var(--text-secondary); font-style: italic; font-size: 0.85em; white-space: nowrap; }
+    .double-oc-table td.pair-cell { min-width: 210px; }
+    .double-oc-table .pair-cell-inner { display: flex; gap: 12px; align-items: flex-start; }
+    .double-oc-table .pair-thumb {
+      width: 64px; height: 64px;
+      border-radius: 4px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
     .table-footnote { color: var(--text-secondary); font-size: 0.9rem; margin-top: 1rem; }
+    .download-row { display: flex; gap: 12px; margin: 20px 0 24px; flex-wrap: wrap; }
+    .download-row .download-btn { padding: 8px 14px; font-size: 0.85rem; }
   </style>
 </head>
 <body>
@@ -65,6 +76,11 @@
 
         <p>The list skews southern hemisphere because that&rsquo;s where I observe, and it is a work in progress &mdash; I&rsquo;ll add pairs as I come across them. Cluster names link to their entries in the <a href="../catalogue/index.html">object catalogue</a>, where you&rsquo;ll find the full notes, DSS plates, and finder charts.</p>
 
+        <div class="download-row">
+          <a class="download-btn" href="downloads/visual-double-open-clusters.pdf" download>&#8681;&nbsp;PDF</a>
+          <a class="download-btn" href="downloads/visual-double-open-clusters.xlsx" download>&#8681;&nbsp;Excel</a>
+        </div>
+
         <div class="catalogue-table-wrap">
           <table class="catalogue-table double-oc-table">
             <thead>
@@ -81,8 +97,13 @@
 
               <tr>
                 <td class="pair-cell">
-                  <a href="../catalogue/objects/ngc-3572.html">NGC 3572</a><br>
-                  <a href="../catalogue/objects/ngc-3590.html">NGC 3590</a>
+                  <div class="pair-cell-inner">
+                    <img class="pair-thumb" src="thumbs/ngc-3572-ngc-3590.jpg" alt="DSS thumbnail of NGC 3572 and NGC 3590" loading="lazy">
+                    <div class="pair-names">
+                      <a href="../catalogue/objects/ngc-3572.html">NGC 3572</a><br>
+                      <a href="../catalogue/objects/ngc-3590.html">NGC 3590</a>
+                    </div>
+                  </div>
                 </td>
                 <td>Carina</td>
                 <td>11h 10.4m<br>11h 13.0m</td>
@@ -93,8 +114,13 @@
 
               <tr>
                 <td class="pair-cell">
-                  <a href="../catalogue/objects/ic-2714.html">IC 2714</a><br>
-                  <a href="../catalogue/objects/mel-105.html">Mel 105</a>
+                  <div class="pair-cell-inner">
+                    <img class="pair-thumb" src="thumbs/ic-2714-mel-105.jpg" alt="DSS thumbnail of IC 2714 and Mel 105" loading="lazy">
+                    <div class="pair-names">
+                      <a href="../catalogue/objects/ic-2714.html">IC 2714</a><br>
+                      <a href="../catalogue/objects/mel-105.html">Mel 105</a>
+                    </div>
+                  </div>
                 </td>
                 <td>Carina</td>
                 <td>11h 17.5m<br>11h 19.7m</td>
@@ -105,8 +131,13 @@
 
               <tr>
                 <td class="pair-cell">
-                  <a href="../catalogue/objects/ic-2602.html">IC 2602</a><br>
-                  <a href="../catalogue/objects/mel-101.html">Mel 101</a>
+                  <div class="pair-cell-inner">
+                    <img class="pair-thumb" src="thumbs/ic-2602-mel-101.jpg" alt="DSS thumbnail of IC 2602 and Mel 101" loading="lazy">
+                    <div class="pair-names">
+                      <a href="../catalogue/objects/ic-2602.html">IC 2602</a><br>
+                      <a href="../catalogue/objects/mel-101.html">Mel 101</a>
+                    </div>
+                  </div>
                 </td>
                 <td>Carina</td>
                 <td>10h 43.0m<br>10h 42.2m</td>
@@ -117,8 +148,13 @@
 
               <tr>
                 <td class="pair-cell">
-                  <a href="../catalogue/objects/ngc-6200.html">NGC 6200</a><br>
-                  <a href="../catalogue/objects/ngc-6204.html">NGC 6204</a>
+                  <div class="pair-cell-inner">
+                    <img class="pair-thumb" src="thumbs/ngc-6200-ngc-6204.jpg" alt="DSS thumbnail of NGC 6200 and NGC 6204" loading="lazy">
+                    <div class="pair-names">
+                      <a href="../catalogue/objects/ngc-6200.html">NGC 6200</a><br>
+                      <a href="../catalogue/objects/ngc-6204.html">NGC 6204</a>
+                    </div>
+                  </div>
                 </td>
                 <td>Ara</td>
                 <td>16h 44.1m<br>16h 46.2m</td>
@@ -129,8 +165,13 @@
 
               <tr>
                 <td class="pair-cell">
-                  <a href="../catalogue/objects/ngc-6134.html">NGC 6134</a><br>
-                  Hogg 19
+                  <div class="pair-cell-inner">
+                    <img class="pair-thumb" src="thumbs/ngc-6134-hogg-19.jpg" alt="DSS thumbnail of NGC 6134 and Hogg 19" loading="lazy">
+                    <div class="pair-names">
+                      <a href="../catalogue/objects/ngc-6134.html">NGC 6134</a><br>
+                      Hogg 19
+                    </div>
+                  </div>
                 </td>
                 <td>Norma</td>
                 <td>16h 27.8m<br>16h 29.0m</td>
