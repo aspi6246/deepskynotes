@@ -413,26 +413,26 @@ def generate_object_page(obj: dict, prev_obj: dict | None, next_obj: dict | None
     parts = []
     if ultrawide_web:
         parts.append(f'''
-        <div class="chart-cell">
-          <img src="../{ultrawide_web}" alt="{obj['name']} ultra-wide chart" loading="lazy">
+        <div class="chart-cell chart-full">
+          <a href="../{ultrawide_web}" target="_blank" rel="noopener" title="Open full-size chart in a new tab"><img src="../{ultrawide_web}" alt="{obj['name']} ultra-wide chart" loading="lazy"></a>
           <div class="chart-caption">Ultra-wide view (~25° field)</div>
         </div>''')
     if wide_web:
         parts.append(f'''
-        <div class="chart-cell">
-          <img src="../{wide_web}" alt="{obj['name']} wide-field chart" loading="lazy">
+        <div class="chart-cell chart-full">
+          <a href="../{wide_web}" target="_blank" rel="noopener" title="Open full-size chart in a new tab"><img src="../{wide_web}" alt="{obj['name']} wide-field chart" loading="lazy"></a>
           <div class="chart-caption">Wide-field view with Telrad rings (4°, 2°, 0.5°)</div>
         </div>''')
     if finder_web:
         parts.append(f'''
         <div class="chart-cell">
-          <img src="../{finder_web}" alt="{obj['name']} finderscope view" loading="lazy">
+          <a href="../{finder_web}" target="_blank" rel="noopener" title="Open full-size chart in a new tab"><img src="../{finder_web}" alt="{obj['name']} finderscope view" loading="lazy"></a>
           <div class="chart-caption">Finderscope view (9×50 RACI, ~4.4° TFOV)</div>
         </div>''')
     if ep_web:
         parts.append(f'''
         <div class="chart-cell">
-          <img src="../{ep_web}" alt="{obj['name']} eyepiece view" loading="lazy">
+          <a href="../{ep_web}" target="_blank" rel="noopener" title="Open full-size chart in a new tab"><img src="../{ep_web}" alt="{obj['name']} eyepiece view" loading="lazy"></a>
           <div class="chart-caption">Eyepiece view — 35 mm Panoptic on 12-inch f/5 (1.6° TFOV)</div>
         </div>''')
     if parts:

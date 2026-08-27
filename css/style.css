@@ -650,7 +650,9 @@ ul, ol { padding-left: 1.5em; }
   font-size: 0.88rem;
 }
 
-/* Charts grid: uniform 2-column layout, one cell per chart */
+/* Charts grid: 2-col base, wide-format charts span full width.
+   Ultra-wide and wide-field carry .chart-full and span both columns
+   so their small Bayer / catalogue labels stay legible. */
 .charts-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -660,10 +662,21 @@ ul, ol { padding-left: 1.5em; }
 .chart-cell {
   text-align: center;
 }
+.chart-cell.chart-full {
+  grid-column: 1 / -1;
+}
+.chart-cell a {
+  display: block;
+}
 .chart-cell img {
   max-width: 100%;
   border: 1px solid var(--border);
   border-radius: 4px;
+  transition: border-color 0.15s ease;
+}
+.chart-cell a:hover img,
+.chart-cell a:focus-visible img {
+  border-color: var(--accent);
 }
 .chart-caption {
   font-size: 0.8rem;
