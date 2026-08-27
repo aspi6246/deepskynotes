@@ -573,21 +573,38 @@ ul, ol { padding-left: 1.5em; }
 }
 .specs-table td:last-child { border-right: none; }
 
-/* DSS plate */
-.dss-plate {
-  text-align: center;
+/* Object hero: specs table on the left, DSS thumbnail on the right */
+.object-specs-row {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
   margin-bottom: 32px;
 }
+.object-specs-row .specs-table-wrap {
+  flex: 1;
+  min-width: 0;
+  margin-bottom: 0;
+}
+.object-specs-row .dss-plate {
+  flex: 0 0 240px;
+  margin-bottom: 0;
+}
+
+/* DSS plate — sized as a thumbnail alongside the specs table */
+.dss-plate {
+  text-align: center;
+}
 .dss-plate img {
-  max-width: 420px;
-  margin: 0 auto;
+  max-width: 240px;
+  width: 100%;
   border: 1px solid var(--border);
   border-radius: 4px;
 }
 .dss-plate .dss-caption {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
   margin-top: 6px;
+  line-height: 1.3;
 }
 
 .aladin-viewer {
@@ -633,37 +650,17 @@ ul, ol { padding-left: 1.5em; }
   font-size: 0.88rem;
 }
 
-/* Charts grid */
+/* Charts grid: uniform 2-column layout, one cell per chart */
 .charts-grid {
-  display: grid;
-  gap: 20px;
-  margin-bottom: 32px;
-}
-.chart-ultrawide {
-  text-align: center;
-}
-.chart-ultrawide img {
-  max-width: 100%;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-}
-.chart-wide {
-  text-align: center;
-}
-.chart-wide img {
-  max-width: 100%;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-}
-.charts-pair {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
+  margin-bottom: 32px;
 }
-.charts-pair .chart {
+.chart-cell {
   text-align: center;
 }
-.charts-pair .chart img {
+.chart-cell img {
   max-width: 100%;
   border: 1px solid var(--border);
   border-radius: 4px;
@@ -961,8 +958,18 @@ ul, ol { padding-left: 1.5em; }
     padding-left: 16px;
   }
 
-  .charts-pair {
+  .charts-grid {
     grid-template-columns: 1fr;
+  }
+
+  .object-specs-row {
+    flex-direction: column;
+  }
+  .object-specs-row .dss-plate {
+    flex-basis: auto;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .article-card {
@@ -997,4 +1004,48 @@ ul, ol { padding-left: 1.5em; }
   .about-observer { flex-direction: column; align-items: center; }
   .about-portrait { width: 180px; }
   .equipment-grid { grid-template-columns: 1fr; }
+}
+
+/* Print — strip site chrome and JS-only widgets so a catalogue page prints
+   cleanly at header → specs+DSS → prose → charts → references. */
+@media print {
+  .site-nav,
+  .site-footer,
+  .breadcrumbs,
+  .object-nav,
+  .nav-toggle,
+  .aladin-viewer {
+    display: none !important;
+  }
+  body {
+    background: white;
+    color: black;
+  }
+  .page-content {
+    padding: 0;
+  }
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+  a {
+    color: black;
+    text-decoration: none;
+  }
+  .object-section-title {
+    color: black;
+    border-bottom-color: #999;
+    break-after: avoid;
+  }
+  .chart-cell,
+  .charts-grid {
+    break-inside: avoid;
+  }
+  .specs-table,
+  .specs-table th,
+  .specs-table td {
+    background: white !important;
+    color: black !important;
+    border-color: #999 !important;
+  }
 }

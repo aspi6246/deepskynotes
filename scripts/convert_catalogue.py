@@ -413,32 +413,27 @@ def generate_object_page(obj: dict, prev_obj: dict | None, next_obj: dict | None
     parts = []
     if ultrawide_web:
         parts.append(f'''
-        <div class="chart-ultrawide">
+        <div class="chart-cell">
           <img src="../{ultrawide_web}" alt="{obj['name']} ultra-wide chart" loading="lazy">
           <div class="chart-caption">Ultra-wide view (~25° field)</div>
         </div>''')
     if wide_web:
         parts.append(f'''
-        <div class="chart-wide">
+        <div class="chart-cell">
           <img src="../{wide_web}" alt="{obj['name']} wide-field chart" loading="lazy">
           <div class="chart-caption">Wide-field view with Telrad rings (4°, 2°, 0.5°)</div>
         </div>''')
-    if finder_web or ep_web:
-        pair_parts = []
-        if finder_web:
-            pair_parts.append(f'''
-          <div class="chart">
-            <img src="../{finder_web}" alt="{obj['name']} finderscope view" loading="lazy">
-            <div class="chart-caption">Finderscope view (9×50 RACI, ~4.4° TFOV)</div>
-          </div>''')
-        if ep_web:
-            pair_parts.append(f'''
-          <div class="chart">
-            <img src="../{ep_web}" alt="{obj['name']} eyepiece view" loading="lazy">
-            <div class="chart-caption">Eyepiece view — 35 mm Panoptic on 12-inch f/5 (1.6° TFOV)</div>
-          </div>''')
+    if finder_web:
         parts.append(f'''
-        <div class="charts-pair">{''.join(pair_parts)}
+        <div class="chart-cell">
+          <img src="../{finder_web}" alt="{obj['name']} finderscope view" loading="lazy">
+          <div class="chart-caption">Finderscope view (9×50 RACI, ~4.4° TFOV)</div>
+        </div>''')
+    if ep_web:
+        parts.append(f'''
+        <div class="chart-cell">
+          <img src="../{ep_web}" alt="{obj['name']} eyepiece view" loading="lazy">
+          <div class="chart-caption">Eyepiece view — 35 mm Panoptic on 12-inch f/5 (1.6° TFOV)</div>
         </div>''')
     if parts:
         charts_section = f'''
@@ -503,21 +498,23 @@ def generate_object_page(obj: dict, prev_obj: dict | None, next_obj: dict | None
         <div class="object-constellation">{type_badge} in {obj["constellation"]}</div>
       </div>
 
-      <div class="specs-table-wrap">
-        <table class="specs-table">
-          <thead><tr>
-            <th>R.A.</th><th>Dec.</th><th>Size</th><th>Mag</th>
-            <th>SB</th><th>Class</th><th>Type</th><th>Distance</th><th>Chart</th>
-          </tr></thead>
-          <tbody><tr>{specs_row}</tr></tbody>
-        </table>
+      <div class="object-specs-row">
+        <div class="specs-table-wrap">
+          <table class="specs-table">
+            <thead><tr>
+              <th>R.A.</th><th>Dec.</th><th>Size</th><th>Mag</th>
+              <th>SB</th><th>Class</th><th>Type</th><th>Distance</th><th>Chart</th>
+            </tr></thead>
+            <tbody><tr>{specs_row}</tr></tbody>
+          </table>
+        </div>
+        {dss_section}
       </div>
-      {dss_section}
       {aladin_section}
       {bg_section}
       {notes_section}
-      {refs_section}
       {charts_section}
+      {refs_section}
 
       <div class="object-nav">
         {nav_parts[0]}
@@ -673,6 +670,7 @@ def generate_master_table_page(total: int) -> str:
             <a href="constellations/index.html">Browse by Constellation</a>
           </div>
         </li>
+        <li><a href="../observing-lists/index.html">Observing Lists</a></li>
         <li><a href="../published/index.html">Published</a></li>
         <li><a href="../links.html">Links</a></li>
         <li><a href="../about.html">About</a></li>
