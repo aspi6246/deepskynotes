@@ -805,6 +805,19 @@ ul, ol { padding-left: 1.5em; }
   font-size: 0.82rem;
   color: var(--text-muted);
 }
+.download-item-info .read-online {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  width: fit-content;
+}
+.download-item-info .read-online:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent-dim);
+}
 .download-btn {
   display: inline-flex;
   align-items: center;
