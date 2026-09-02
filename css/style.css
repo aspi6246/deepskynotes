@@ -824,6 +824,33 @@ ul, ol { padding-left: 1.5em; }
   color: var(--bg-primary);
 }
 
+/* Published-PDF links, folded in from the retired Published section */
+.article-downloads {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 18px;
+  margin-top: 18px;
+}
+.download-secondary {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+}
+.download-secondary:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent-dim);
+}
+.card-pdf-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.card-pdf-link:hover { color: var(--accent); }
+
 /* --- About page -------------------------------------------- */
 .about-content {
   max-width: var(--article-max);

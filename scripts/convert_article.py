@@ -18,6 +18,63 @@ MONTH_NAMES = {
     9: 'September', 10: 'October', 11: 'November', 12: 'December'
 }
 
+# Where each article appeared in Universe. The Published section was folded
+# into Articles, so the PDFs now hang off the article they belong to.
+# article slug -> (pdf stem in published/, volume, issue number, issue month)
+ISSUE_MAP = {
+    '2025-04': ('2025-06', 74, 6, 'June 2025'),
+    '2025-05': ('2025-07', 74, 7, 'July 2025'),
+    '2025-06': ('2025-08', 74, 8, 'August 2025'),
+    '2025-08': ('2025-10', 74, 10, 'October 2025'),
+    '2025-09': ('2025-11', 74, 11, 'November 2025'),
+    '2026-01': ('2026-03', 75, 3, 'March 2026'),
+    '2026-03': ('2026-05', 75, 5, 'May 2026'),
+    '2026-04': ('2026-06', 75, 6, 'June 2026'),
+    '2026-07': ('2026-08', 75, 8, 'August 2026'),
+    '2026-08': ('2026-09', 75, 9, 'September 2026'),
+}
+
+
+def issue_credit(slug: str) -> str:
+    """The `Published in Universe ...` line for an article's meta block."""
+    entry = ISSUE_MAP.get(slug)
+    if not entry:
+        return 'Published in <em>Universe</em>, Astronomical Society of NSW'
+    _, vol, iss, when = entry
+    return (f'Published in <em>Universe</em> Vol {vol} #{iss:02d}, {when}, '
+            f'Astronomical Society of NSW')
+
+
+def issue_downloads(slug: str, published_dir: Path) -> str:
+    """Download buttons for the published PDFs, or '' if none are on disk."""
+    entry = ISSUE_MAP.get(slug)
+    if not entry:
+        return ''
+    stem, vol, iss, _ = entry
+    extract = published_dir / f'{stem}.pdf'
+    if not extract.exists():
+        return ''
+    mb = extract.stat().st_size / (1024 * 1024)
+    # Extract only. published/*-full.pdf is gitignored, so the complete issues
+    # exist locally but never reach GitHub Pages -- linking one gives every
+    # visitor a 404. (Also the author's standing rule: host the column extract,
+    # not the whole issue.)
+    button = (f'          <a href="../published/{extract.name}" class="download-btn" '
+              f'download>&#8681; Download as published (PDF &middot; {mb:.1f} MB)</a>')
+    return ('        <div class="article-downloads">\n'
+            + button + '\n'
+            + '        </div>\n')
+
+
+def issue_card_link(slug: str) -> str:
+    """The small `As published` line shown on an article-index card."""
+    entry = ISSUE_MAP.get(slug)
+    if not entry:
+        return ''
+    stem, vol, iss, _ = entry
+    return (f'\n            <a class="card-pdf-link" href="../published/{stem}.pdf" '
+            f'download>&#8681; As published &mdash; <em>Universe</em> Vol {vol} #{iss:02d}</a>')
+
 
 def find_docx(folder: Path) -> Path | None:
     candidates = list(folder.glob('*.docx'))
@@ -195,6 +252,9 @@ def convert_article(folder: Path, output_dir: Path, year: int, month: int,
 
     first_img = figure_images.get(1, '')
 
+    credit = issue_credit(slug)
+    downloads = issue_downloads(slug, SITE_ROOT / 'published')
+
     nav_prev = ''
     nav_next = ''
     if prev_article:
@@ -231,7 +291,6 @@ def convert_article(folder: Path, output_dir: Path, year: int, month: int,
           </div>
         </li>
         <li><a href="../observing-lists/index.html">Observing Lists</a></li>
-        <li><a href="../published/index.html">Published</a></li>
         <li><a href="../links.html">Links</a></li>
         <li><a href="../about.html">About</a></li>
       </ul>
@@ -249,9 +308,9 @@ def convert_article(folder: Path, output_dir: Path, year: int, month: int,
         <h1 class="mt-0">Deep Sky Notes &mdash; {month_name} {year}</h1>
         <div class="article-meta">
           <time datetime="{year}-{month:02d}">{month_name} {year}</time> &middot;
-          Published in <em>Universe</em>, Astronomical Society of NSW
+          {credit}
         </div>
-      </div>
+{downloads}      </div>
 
       <div class="article-body">
         {body_html}
@@ -310,7 +369,7 @@ def generate_article_index(articles: list[dict], output_dir: Path):
           <div class="article-card-body">
             <h3><a href="{a['slug']}.html">{a['title']}</a></h3>
             <div class="date">{a['monthName']} {a['year']}</div>
-            <p class="excerpt">{a['excerpt']}</p>
+            <p class="excerpt">{a['excerpt']}</p>{issue_card_link(a['slug'])}
           </div>
         </div>''')
 
@@ -342,7 +401,6 @@ def generate_article_index(articles: list[dict], output_dir: Path):
             <a href="../catalogue/constellations/index.html">Browse by Constellation</a>
           </div>
         </li>
-        <li><a href="../published/index.html">Published</a></li>
         <li><a href="../links.html">Links</a></li>
         <li><a href="../about.html">About</a></li>
       </ul>
@@ -352,7 +410,7 @@ def generate_article_index(articles: list[dict], output_dir: Path):
   <main class="page-content">
     <div class="container">
       <h1>Articles</h1>
-      <p class="text-secondary">Monthly observing reports from new-moon weekends at Wiruna.</p>
+      <p class="text-secondary">Monthly observing reports from new-moon weekends at Wiruna, written as the <strong>Wiruna Wanderings</strong> column for <em>Universe</em>, the journal of the <a href="https://www.asnsw.com" target="_blank" rel="noopener">Astronomical Society of New South Wales</a>. Each report links the issue it appeared in, as a PDF.</p>
 
       <div class="article-list">{''.join(cards)}
       </div>

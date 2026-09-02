@@ -328,7 +328,6 @@ NAV_HTML = '''<nav class="site-nav">
           </div>
         </li>
         <li><a href="../../observing-lists/index.html">Observing Lists</a></li>
-        <li><a href="../../published/index.html">Published</a></li>
         <li><a href="../../links.html">Links</a></li>
         <li><a href="../../about.html">About</a></li>
       </ul>
@@ -671,7 +670,6 @@ def generate_master_table_page(total: int) -> str:
           </div>
         </li>
         <li><a href="../observing-lists/index.html">Observing Lists</a></li>
-        <li><a href="../published/index.html">Published</a></li>
         <li><a href="../links.html">Links</a></li>
         <li><a href="../about.html">About</a></li>
       </ul>
