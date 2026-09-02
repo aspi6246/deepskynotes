@@ -35,6 +35,17 @@ ISSUE_MAP = {
 }
 
 
+# The observing weekend an article actually reports on, where that differs from
+# its draft-folder date. Articles on this site are labelled by the weekend they
+# cover, and the column masthead agrees -- but a write-up filed late lands in a
+# later folder, and the folder is what sets the slug. Keep the slug (the URL is
+# published) and override only what the reader sees.
+# article slug -> (weekend year, weekend month)
+WEEKEND_OVERRIDES = {
+    '2026-01': (2025, 12),  # the December 2025 weekend, written up in January
+}
+
+
 def issue_credit(slug: str) -> str:
     """The `Published in Universe ...` line for an article's meta block."""
     entry = ISSUE_MAP.get(slug)
@@ -246,9 +257,12 @@ def convert_article(folder: Path, output_dir: Path, year: int, month: int,
             body_parts.append(html)
 
     body_html = '\n'.join(body_parts)
-    month_name = MONTH_NAMES.get(month, str(month))
-    title = f'Deep Sky Notes &mdash; {month_name} {year}'
     slug = f'{year}-{month:02d}'
+    # slug/URL stays folder-derived; everything the reader sees uses the
+    # weekend the article actually covers.
+    disp_year, disp_month = WEEKEND_OVERRIDES.get(slug, (year, month))
+    month_name = MONTH_NAMES.get(disp_month, str(disp_month))
+    title = f'Deep Sky Notes &mdash; {month_name} {disp_year}'
 
     first_img = figure_images.get(1, '')
 
@@ -269,7 +283,7 @@ def convert_article(folder: Path, output_dir: Path, year: int, month: int,
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noai, noimageai">
   <title>{title}</title>
-  <meta name="description" content="Deep Sky Notes observing report for {month_name} {year}">
+  <meta name="description" content="Deep Sky Notes observing report for {month_name} {disp_year}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -301,13 +315,13 @@ def convert_article(folder: Path, output_dir: Path, year: int, month: int,
     <div class="container">
       <div class="breadcrumbs">
         <a href="index.html">Articles</a><span class="sep">&rsaquo;</span>
-        {month_name} {year}
+        {month_name} {disp_year}
       </div>
 
       <div class="article-header">
-        <h1 class="mt-0">Deep Sky Notes &mdash; {month_name} {year}</h1>
+        <h1 class="mt-0">Deep Sky Notes &mdash; {month_name} {disp_year}</h1>
         <div class="article-meta">
-          <time datetime="{year}-{month:02d}">{month_name} {year}</time> &middot;
+          <time datetime="{disp_year}-{disp_month:02d}">{month_name} {disp_year}</time> &middot;
           {credit}
         </div>
 {downloads}      </div>
@@ -348,10 +362,10 @@ def convert_article(folder: Path, output_dir: Path, year: int, month: int,
 
     return {
         'slug': slug,
-        'year': year,
-        'month': month,
+        'year': disp_year,
+        'month': disp_month,
         'monthName': month_name,
-        'title': f'Deep Sky Notes — {month_name} {year}',
+        'title': f'Deep Sky Notes — {month_name} {disp_year}',
         'excerpt': excerpt,
         'thumbnail': first_img,
     }
