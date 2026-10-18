@@ -41,10 +41,16 @@ TYPE_CSS = {
 
 
 def clean_latex(text: str) -> str:
-    text = re.sub(r'\\textbf\{([^}]*)\}', r'<strong>\1</strong>', text)
+    # \textit first: the 22-inch prefix nests it inside \textbf
+    # (\textbf{... \textit{Lord Sidious}):}), and the [^}]* bold match would
+    # otherwise stop at the italic's closing brace and mis-nest the tags.
     text = re.sub(r'\\textit\{([^}]*)\}', r'<em>\1</em>', text)
+    text = re.sub(r'\\textbf\{([^}]*)\}', r'<strong>\1</strong>', text)
     text = re.sub(r'\\href\{([^}]*)\}\{([^}]*)\}', r'<a href="\1" target="_blank" rel="noopener">\2</a>', text)
     text = re.sub(r'\\hfill\s*<em>\(([^)]*)\)</em>', r'<span class="obs-date">(\1)</span>', text)
+    # A bare ~ is a LaTeX non-breaking space. Convert it before $\sim$ becomes
+    # a literal ~, or "approximately" prints as a blank gap.
+    text = text.replace('~', ' ')
     for cmd, char in GREEK.items():
         text = text.replace(f'${cmd}$', char)
         text = text.replace(cmd, char)
@@ -53,7 +59,6 @@ def clean_latex(text: str) -> str:
     text = re.sub(r'\$([^$]*)\$', lambda m: m.group(1), text)
     text = text.replace('\\,', ' ')
     text = text.replace('{,}', ',')
-    text = text.replace('~', ' ')
     text = text.replace('---', '—')
     text = text.replace('--', '–')
     text = text.replace("``", '“')
