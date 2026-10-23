@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noai, noimageai">
+  <title>IC 4699 &mdash; Deep Sky Notes</title>
+  <meta name="description" content="IC 4699 (PN) in Telescopium — finder charts, DSS plate, and observing notes">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-brand">Deep Sky Notes</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="../../articles/index.html">Articles</a></li>
+        <li class="nav-dropdown">
+          <a href="../index.html" class="active">Observing Notes &#9662;</a>
+          <div class="nav-dropdown-menu">
+            <a href="../index.html">Master Table</a>
+            <a href="../constellations/index.html">Browse by Constellation</a>
+          </div>
+        </li>
+        <li><a href="../../observing-lists/index.html">Observing Lists</a></li>
+        <li><a href="../../links.html">Links</a></li>
+        <li><a href="../../about.html">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page-content">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="../index.html">Catalogue</a><span class="sep">&rsaquo;</span>
+        <a href="../constellations/telescopium.html">Telescopium</a><span class="sep">&rsaquo;</span>
+        IC 4699
+      </div>
+
+      <div class="object-header">
+        <h1 class="mt-0">IC 4699 (PN)</h1>
+        <div class="object-constellation"><span class="type-badge pn">Planetary Nebula</span> in Telescopium</div>
+      </div>
+
+      <div class="object-specs-row">
+        <div class="specs-table-wrap">
+          <table class="specs-table">
+            <thead><tr>
+              <th>R.A.</th><th>Dec.</th><th>Size</th><th>Mag</th>
+              <th>SB</th><th>Class</th><th>Type</th><th>Distance</th><th>Chart</th>
+            </tr></thead>
+            <tbody><tr><td>18h 18m 31.2s</td><td>-45° 59′ 09.0″</td><td>5″</td><td>13.0</td><td>6.2</td><td>--</td><td>PN</td><td>--</td><td>--</td></tr></tbody>
+          </table>
+        </div>
+        
+      <div class="dss-plate">
+        <img src="../images/telescopium/ic_4699_dss.jpg" alt="IC 4699 DSS plate" loading="lazy">
+        <div class="dss-caption">Source: POSS-2 UK Schmidt Red (STScI) | Field: 10′ × 10′</div>
+      </div>
+      </div>
+      
+      <div class="aladin-viewer">
+        <h2 class="object-section-title">Interactive Sky View</h2>
+        <div id="aladin-lite-div" style="width: 100%; height: 350px;">
+          <div class="aladin-fallback" style="display:flex;align-items:center;justify-content:center;height:100%;color:#888;font-size:0.9rem;text-align:center;padding:1rem;">
+            Loading interactive sky view&hellip;
+          </div>
+        </div>
+        <div class="aladin-caption">
+          Powered by <a href="https://aladin.cds.unistra.fr/AladinLite/" target="_blank" rel="noopener">Aladin Lite</a> / CDS, Strasbourg.
+          Pan, zoom, or switch surveys using the layer icon.
+        </div>
+        <script type="text/javascript" src="https://aladin.cds.unistra.fr/AladinLite/api/v3/latest/aladin.js" charset="utf-8"></script>
+        <script type="text/javascript">
+          (function() {
+            if (typeof A === 'undefined' || !A.init) {
+              var fb = document.querySelector('.aladin-fallback');
+              if (fb) fb.textContent = 'Interactive viewer not available on this device. Try viewing on a desktop browser.';
+              return;
+            }
+            A.init.then(function() {
+              A.aladin('#aladin-lite-div', {
+                target: '274.630000 -45.985833',
+                survey: 'P/DSS2/color',
+                fov: 0.0800,
+                showReticle: true,
+                showCooGrid: false
+              });
+            }).catch(function() {
+              var fb = document.querySelector('.aladin-fallback');
+              if (fb) fb.textContent = 'Interactive viewer could not load. Try viewing on a desktop browser.';
+            });
+          })();
+        </script>
+      </div>
+      
+      <h2 class="object-section-title">Background</h2>
+      <p>IC 4699 is a tiny planetary nebula in Telescopium — only ≈5”
+across, so at low power it is indistinguishable from a 13th-magnitude field
+star. It also carries the designations Hen 2-383 and PK 348-13.1. The way in
+is an O III filter held between eye and eyepiece and flicked in and out: the
+nebula holds its brightness while the true stars around it fade. Once found,
+high magnification should show a small disk rather than a point.
+Gaia's parallax for the central star is too uncertain to give more than
+“many thousands of light-years”.</p>
+      
+      <h2 class="object-section-title">My Observing Notes</h2>
+      <div class="observing-notes">
+        <p>(Not yet observed)</p>
+      </div>
+      
+      <h2 class="object-section-title">Charts</h2>
+      <div class="charts-grid">
+        <div class="chart-cell chart-full">
+          <a href="../images/telescopium/ic_4699_ultrawide.jpg" target="_blank" rel="noopener" title="Open full-size chart in a new tab"><img src="../images/telescopium/ic_4699_ultrawide.jpg" alt="IC 4699 ultra-wide chart" loading="lazy"></a>
+          <div class="chart-caption">Ultra-wide view (~25° field)</div>
+        </div>
+        <div class="chart-cell chart-full">
+          <a href="../images/telescopium/ic_4699_wide.jpg" target="_blank" rel="noopener" title="Open full-size chart in a new tab"><img src="../images/telescopium/ic_4699_wide.jpg" alt="IC 4699 wide-field chart" loading="lazy"></a>
+          <div class="chart-caption">Wide-field view with Telrad rings (4°, 2°, 0.5°)</div>
+        </div>
+        <div class="chart-cell">
+          <a href="../images/telescopium/ic_4699_finder.jpg" target="_blank" rel="noopener" title="Open full-size chart in a new tab"><img src="../images/telescopium/ic_4699_finder.jpg" alt="IC 4699 finderscope view" loading="lazy"></a>
+          <div class="chart-caption">Finderscope view (9×50 RACI, ~4.4° TFOV)</div>
+        </div>
+        <div class="chart-cell">
+          <a href="../images/telescopium/ic_4699_ep.jpg" target="_blank" rel="noopener" title="Open full-size chart in a new tab"><img src="../images/telescopium/ic_4699_ep.jpg" alt="IC 4699 eyepiece view" loading="lazy"></a>
+          <div class="chart-caption">Eyepiece view — 35 mm Panoptic on 12-inch f/5 (1.6° TFOV)</div>
+        </div>
+      </div>
+      
+      <h2 class="object-section-title">References</h2>
+      <ul class="references-list">
+<li><a href="https://simbad.u-strasbg.fr/simbad/sim-id?Ident=IC%204699" target="_blank" rel="noopener">SIMBAD: IC 4699</a></li>
+</ul>
+
+      <div class="object-nav">
+        <span></span>
+        <a href="../constellations/telescopium.html" class="back-link">Telescopium</a>
+        <a href="ngc-6584.html">NGC 6584 &rarr;</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Deep Sky Notes &mdash; Alessandro Spina</p>
+
+      <p class="text-secondary">Finder charts produced with <a href="https://stellarium.org" target="_blank" rel="noopener">Stellarium</a>. Survey images from the <a href="https://archive.stsci.edu/cgi-bin/dss_form" target="_blank" rel="noopener">Digitized Sky Survey</a> (STScI/NASA). Object data queried from the <a href="https://simbad.u-strasbg.fr/" target="_blank" rel="noopener">SIMBAD</a> database (CDS, Strasbourg).</p>
+      <p class="text-secondary">&copy; 2026 Alessandro Spina. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
