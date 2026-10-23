@@ -211,6 +211,11 @@ def parse_tex_file(path: Path) -> dict | None:
     if wide_image and 'images_bw' in wide_image and not ep_image:
         ep_image = wide_image.replace('_wide.', '_ep.')
 
+    hop_image = ''
+    m = re.search(r'\\starhoppage\{([^}]+)\}', text)
+    if m:
+        hop_image = m.group(1)
+
     bg_text = ''
     m = re.search(r'\\background\s*\n(.*?)(?=\\mynotes|\\observed|\\refs|\\clearpage|$)', text, re.DOTALL)
     if m:
@@ -265,6 +270,7 @@ def parse_tex_file(path: Path) -> dict | None:
         'wideImage': wide_image,
         'finderImage': finder_image,
         'epImage': ep_image,
+        'hopImage': hop_image,
         'background': bg_text,
         'notes': notes_text,
         'refs': refs,
@@ -356,6 +362,7 @@ def generate_object_page(obj: dict, prev_obj: dict | None, next_obj: dict | None
     wide_web = image_web_path(obj['wideImage'], slug)
     finder_web = image_web_path(obj['finderImage'], slug)
     ep_web = image_web_path(obj['epImage'], slug)
+    hop_web = image_web_path(obj.get('hopImage', ''), slug)
 
     bg_html = format_background(obj['background'])
     notes_html = format_notes(obj['notes'])
@@ -415,6 +422,12 @@ def generate_object_page(obj: dict, prev_obj: dict | None, next_obj: dict | None
 
     charts_section = ''
     parts = []
+    if hop_web:
+        parts.append(f'''
+        <div class="chart-cell chart-full">
+          <a href="../{hop_web}" target="_blank" rel="noopener" title="Open full-size chart in a new tab"><img src="../{hop_web}" alt="{obj['name']} star-hop chart" loading="lazy"></a>
+          <div class="chart-caption">Star hop — green arrows are the route, grey dashed lines are cross-checks, grey circle is the 9×50 finder field. North up, east left.</div>
+        </div>''')
     if ultrawide_web:
         parts.append(f'''
         <div class="chart-cell chart-full">

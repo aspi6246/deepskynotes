@@ -8,6 +8,8 @@ catalogue/images/<constellation-slug>/ (slug = lowercase constellation):
     <slug>_wide.jpg       ditto                                    (1200 px)
     <slug>_finder.jpg     ditto                                    (1200 px)
     <slug>_ep.jpg         ditto                                    (600 px)
+    <slug>_hop.jpg        from  Private Repo/images/<Const>/       (1200 px, colour;
+                          only objects with a star-hop chart)
 
 Incremental: a destination is rewritten only when missing or older than its
 source, so a full run after a small catalogue change is cheap. Run after
@@ -33,7 +35,7 @@ DEST = SITE_ROOT / "catalogue" / "images"
 MAX_WIDTH_EP = 600
 
 # Longest first: 'mel_96_ultrawide' must not be matched by '_wide'.
-IMAGE_SUFFIXES = ('_ultrawide', '_finder', '_wide', '_dss', '_ep')
+IMAGE_SUFFIXES = ('_ultrawide', '_finder', '_wide', '_dss', '_hop', '_ep')
 
 
 def object_slug(stem: str) -> str:
@@ -82,6 +84,15 @@ def sync():
                     skipped += 1
                     continue
                 optimize_image(src, dst, MAX_WIDTH_DSS)
+                done += 1
+            for src in sorted(colour_dir.glob('*_hop.png')):
+                if not wanted(src):
+                    continue
+                dst = DEST / slug / (src.stem + '.jpg')
+                if dst.exists() and dst.stat().st_mtime >= src.stat().st_mtime:
+                    skipped += 1
+                    continue
+                optimize_image(src, dst, MAX_WIDTH_CHART)
                 done += 1
 
     ghost_note = f', skipped {ghosts} not in any chapter' if ghosts else ''
