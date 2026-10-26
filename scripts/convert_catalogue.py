@@ -30,6 +30,7 @@ TYPE_LABELS = {
     'Interstellar': 'Interstellar', 'Cl': 'Open Cluster',
     'AGN': 'Galaxy', 'Active': 'Galaxy', 'Radio': 'Galaxy',
     'SNR': 'Supernova Remnant',
+    'CS': 'Carbon Star',
 }
 
 TYPE_CSS = {
@@ -37,6 +38,7 @@ TYPE_CSS = {
     'Emission Nebula': 'en', 'Galaxy': 'gal', 'Dark Nebula': 'dn',
     'Reflection Nebula': 'en', 'Open Cluster + Nebula': 'oc',
     'Interstellar': 'en', 'Supernova Remnant': 'en',
+    'Carbon Star': 'cs',
 }
 
 
